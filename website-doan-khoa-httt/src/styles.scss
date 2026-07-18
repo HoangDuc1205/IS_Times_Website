@@ -1,1 +1,124 @@
-/* You can add global styles to this file, and also import other style files */
+@use "tailwindcss";
+@source "./app/**/*.{html,ts}";
+
+@theme {
+  --color-primary: #003087;
+  --color-tech: #1e40af;
+  --color-tech-light: #3b82f6;
+  --color-green: #16a34a;
+  --color-green-light: #dcfce7;
+  --color-accent: #dc2626;
+  --color-accent-hover: #b91c1c;
+  --color-surface: #f8fafc;
+  --color-surface-alt: #eef2ff;
+  --color-card: #ffffff;
+  --color-overlay: rgba(26, 26, 46, 0.6);
+  --color-ink: #1a1a2e;
+  --color-ink-muted: #545468;
+  --color-ink-subtle: #9296a8;
+  --color-on-primary: #ffffff;
+  --color-border: #e2e8f0;
+  --color-border-focus: var(--color-tech);
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+  --color-info: var(--color-tech);
+
+  --font-heading: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --text-caption: 0.75rem;
+  --text-body-sm: 0.875rem;
+  --text-body: 1rem;
+  --text-body-lg: 1.125rem;
+  --text-h6: 1.25rem;
+  --text-h5: 1.5625rem;
+  --text-h4: 1.953rem;
+  --text-h3: 2.441rem;
+  --text-h2: 3.052rem;
+  --text-h1: 3.815rem;
+
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
+  --spacing-40: 10rem;
+
+  --radius-card: 24px;
+  --radius-button: 9999px;
+  --radius-input: 12px;
+  --radius-badge: 9999px;
+  --radius-image: 16px;
+  --radius-modal: 32px;
+
+  --shadow-sm: 0 1px 2px rgba(26, 26, 46, 0.06);
+  --shadow-md: 0 4px 16px rgba(26, 26, 46, 0.08);
+  --shadow-lg: 0 12px 32px rgba(26, 26, 46, 0.12);
+  --shadow-glow-tech: 0 0 24px rgba(30, 64, 175, 0.25);
+  --shadow-glow-green: 0 0 28px rgba(22, 163, 74, 0.32);
+  --shadow-glow-accent: 0 0 28px rgba(220, 38, 38, 0.34);
+  --shadow-glow-photo: 0 30px 70px rgba(30, 64, 175, 0.28);
+  --shadow-glass-card: 0 22px 55px rgba(30, 64, 175, 0.28);
+
+  --animate-fade-up: fade-up 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-draw-line: draw-line 1500ms cubic-bezier(0.7, 0, 0.2, 1) both;
+  --animate-node-pulse: node-pulse 2400ms ease-in-out infinite;
+}
+
+
+
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes draw-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes node-pulse {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}

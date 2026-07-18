@@ -1,0 +1,323 @@
+<section class="relative isolate min-h-screen overflow-x-hidden bg-surface text-ink" aria-labelledby="hero-title">
+  <div class="hero-grid pointer-events-none absolute inset-0 -z-20"></div>
+  <div class="hero-blue-glow pointer-events-none absolute right-0 top-32 -z-10 h-[620px] w-[760px]"></div>
+  <div class="hero-red-glow pointer-events-none absolute right-10 top-16 -z-10 h-[380px] w-[420px]"></div>
+
+  <div class="mx-auto flex h-full max-w-[1370px] flex-col px-5 py-5 sm:px-8 lg:px-10">
+    <header data-hero-header class="flex shrink-0 items-center justify-between gap-5 xl:gap-8">
+      <a class="flex min-w-0 items-center gap-4 rounded-button focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-4 focus-visible:ring-offset-surface"
+        href="#" aria-label="IS Times - Website của Đoàn khoa Hệ thống thông tin">
+        <img class="size-12 shrink-0 rounded-full object-contain sm:size-14 lg:size-16" src="/LogoWeb.png"
+          alt="Logo IS Times" />
+        <span class="min-w-0">
+          <span class="block font-heading text-body-lg font-bold leading-tight text-ink lg:text-[1.35rem]">
+            IS Times
+          </span>
+          <span class="block font-heading text-caption font-regular leading-tight text-ink-muted">
+            Website của Đoàn khoa Hệ thống thông tin
+          </span>
+        </span>
+      </a>
+
+      <nav
+        class="hidden flex-nowrap items-center gap-2 rounded-button border border-white/70 bg-white/70 p-1.5 font-heading text-body-sm font-bold text-ink shadow-sm backdrop-blur lg:flex xl:gap-3">
+        @for (item of navItems; track item) {
+        <a class="whitespace-nowrap rounded-button px-3.5 py-2.5 leading-none transition hover:bg-tech/10 hover:text-tech focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus xl:px-4"
+          href="#">
+          {{ item }}
+        </a>
+        }
+      </nav>
+
+      <div class="hidden items-center gap-3 md:flex">
+        <!-- Login -->
+        <a class="inline-flex h-11 items-center justify-center gap-2 rounded-button border border-border bg-card px-5 font-heading text-body-sm font-semibold text-ink shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-tech hover:text-tech hover:shadow-md active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-4 focus-visible:ring-offset-surface"
+          href="#login">
+          Đăng nhập
+        </a>
+        <!-- Register -->
+        <a class="inline-flex h-11 items-center justify-center gap-2 rounded-button bg-gradient-to-br from-tech to-accent px-5 font-heading text-body-sm font-semibold text-on-primary shadow-[var(--shadow-glow-accent)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-4 focus-visible:ring-offset-surface"
+          href="#register">
+          Đăng ký
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <div class="flex min-h-0 flex-1 items-start gap-8 py-4 lg:gap-10">
+      <div data-hero-copy class="w-full lg:w-[45%]">
+        <div data-hero-copy-item
+          class="inline-flex items-center gap-2.5 rounded-button border border-blue-200 bg-[#eff6ff]/90 px-4.5 py-2 font-heading text-caption font-bold uppercase tracking-[0.08em] text-tech shadow-sm backdrop-blur">
+          <img class="size-6 rounded-full object-contain"
+            src="https://upload.wikimedia.org/wikipedia/vi/thumb/0/09/Huy_Hi%E1%BB%87u_%C4%90o%C3%A0n.png/250px-Huy_Hi%E1%BB%87u_%C4%90o%C3%A0n.png"
+            alt="Huy hiệu Đoàn" />
+          Đoàn khoa Hệ thống Thông tin - UEL
+        </div>
+
+        <h1 data-hero-copy-item id="hero-title"
+          class="mt-6 font-heading text-[clamp(2.35rem,3.4vw,3.8rem)] font-extrabold leading-[1.12] tracking-normal text-ink">
+          <span class="block"> Mái nhà Xanh</span>
+          <span class="block text-[clamp(1.8rem,2vw,2.3rem)] font-bold leading-tight">
+            Đoàn khoa Hệ thống thông tin
+          </span>
+          <span class="hero-underline-wrap mt-2 block">
+            <span
+              class="bg-gradient-to-r from-tech-light to-accent font-extralight bg-clip-text text-transparent italic leading-[1.3]">
+              AlmuDuck và những người bạn
+            </span>
+            <svg class="hero-underline" viewBox="0 0 400 16" preserveAspectRatio="none" aria-hidden="true">
+              <path pathLength="1" d="M4 10C60 2 140 2 200 8C260 14 340 14 396 6" />
+            </svg>
+          </span>
+        </h1>
+
+        <p data-hero-copy-item
+          class="mt-6 max-w-[560px] text-body font-medium leading-relaxed text-ink-muted lg:text-body-lg">
+          Nơi thanh xuân rực rỡ hòa cùng niềm đam mê công nghệ,<br class="hidden sm:block" />
+          nơi mỗi cá nhân là một mảnh ghép tạo nên gia đình HTTT vững mạnh haha cười vl
+        </p>
+
+        <div data-hero-copy-item class="mt-7 flex flex-col gap-3 sm:flex-row">
+          <a class="inline-flex h-12 items-center justify-center gap-2 rounded-button border border-ink/15 bg-card px-5 font-heading text-[15px] font-bold text-ink shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-tech hover:text-tech hover:shadow-lg active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-4 focus-visible:ring-offset-surface"
+            href="#events">
+            <svg class="h-5 w-5 shrink-0 text-accent" viewBox="0 0 256 256" fill="currentColor">
+              <path
+                d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208ZM140,136v16a8,8,0,0,1-8,8H116a8,8,0,0,1-8-8V136a8,8,0,0,1,8-8h16A8,8,0,0,1,140,136Z" />
+            </svg>
+            <span>Xem sự kiện</span>
+          </a>
+        </div>
+        <div
+          class="mt-7 grid w-full grid-cols-2 gap-3 md:w-[min(760px,calc(100vw-2.5rem))] md:grid-cols-4 xl:w-[820px] xl:gap-4">
+
+          @for (stat of stats; track stat.caption) {
+
+          <article data-hero-stat [attr.data-tone]="stat.tone"
+            class="stat-card group relative min-h-[205px] overflow-hidden rounded-card p-4 xl:p-5">
+            <span class="stat-card-dot"></span>
+            <!-- Icon -->
+            <div class="stat-icon-box">
+              @if (stat.icon === 'calendar') {
+              <svg class="size-6" [class.text-tech]="stat.tone==='blue'" [class.text-accent]="stat.tone==='red'"
+                viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M7 3V6M17 3V6M5 9.5H19M7 5H17C18.1046 5 19 5.89543 19 7V18C19 19.1046 18.1046 20 17 20H7C5.89543 20 5 19.1046 5 18V7C5 5.89543 5.89543 5 7 5Z"
+                  stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+              </svg>
+              }
+              @else if(stat.icon==='flag'){
+              <svg class="size-6" [class.text-tech]="stat.tone==='blue'" [class.text-accent]="stat.tone==='red'"
+                viewBox="0 0 24 24" fill="none">
+                <path d="M6 20V4M6 5H17L15 10L17 15H6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              }
+              @else if(stat.icon==='student' || stat.value==='1000+'){
+              <svg class="size-7" [class.text-tech]="stat.tone==='blue'" [class.text-accent]="stat.tone==='red'"
+                viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M12 3.25 2.7 7.55a1 1 0 0 0 0 1.82L12 13.75l8-3.76v4.16a1.65 1.65 0 1 0 1.5 0V8.8a1 1 0 0 0-.58-.91L12 3.25Z" />
+                <path
+                  d="M6.5 11.75v3.1c0 2.1 2.44 3.9 5.5 3.9s5.5-1.8 5.5-3.9v-3.1L12 14.34l-5.5-2.59Z" />
+              </svg>
+              }
+              @else{
+              <svg class="size-6" [class.text-tech]="stat.tone==='blue'" [class.text-accent]="stat.tone==='red'"
+                viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M9 11A3 3 0 1 0 9 5A3 3 0 0 0 9 11ZM17 12A2.5 2.5 0 1 0 17 7A2.5 2.5 0 0 0 17 12ZM3.5 19C4.1 16.2 6.15 14.5 9 14.5C11.85 14.5 13.9 16.2 14.5 19M14.8 15.2C15.45 14.75 16.2 14.5 17 14.5C19.25 14.5 20.85 15.9 21.4 18.25"
+                  stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+              </svg>
+              }
+            </div>
+            <!-- Number -->
+            <h3 class="stat-value mt-5 text-[clamp(2.25rem,3vw,3.05rem)] font-black leading-none">
+              {{stat.value}}
+            </h3>
+            <div class="stat-rule mt-3"></div>
+            <h4 class="mt-3 text-body-sm font-bold leading-5 text-ink xl:text-body">
+              {{stat.caption}}
+            </h4>
+            <p class="mt-2 text-caption font-medium leading-5 text-ink-muted">
+              @switch (stat.value) {
+              @case ('120+') {
+              Cán bộ Đoàn nhiệt huyết, luôn đồng hành cùng sinh viên.
+              }
+              @case ('35+') {
+              Chương trình và sự kiện được tổ chức mỗi năm.
+              }
+              @case ('1000+') {
+              Sinh viên kết nối, học tập và phát triển dưới mái nhà HTTT.
+              }
+              @default {
+              Hành trình xây dựng và phát triển từ năm 2010.
+              }
+              }
+            </p>
+          </article>
+          }
+        </div>
+      </div>
+
+      <div data-hero-photo class="relative z-20 hidden w-full pt-10 lg:block lg:w-[55%] xl:pt-8">
+        <div class="hero-blue-glow pointer-events-none absolute -inset-16 -z-10"></div>
+        <div class="hero-red-glow pointer-events-none absolute -right-7 -top-16 z-10 h-72 w-80"></div>
+
+        <div
+          class="pointer-events-none absolute -left-7 top-[30%] z-20 grid size-14 place-items-center rounded-full bg-tech text-on-primary shadow-glow-tech"
+          data-hero-float>
+          <svg class="size-6.5" viewBox="0 0 256 256" fill="currentColor">
+            <path
+              d="M116,92A36,36,0,1,1,80,56,36,36,0,0,1,116,92Zm56-36a36,36,0,1,0,36,36A36,36,0,0,0,172,56ZM148,172c0-26.47-30.43-44-68-44s-68,17.53-68,44v20H148Zm80,0c0-26.47-30.43-44-68-44a72.82,72.82,0,0,0-17.76,2.15C150,157.36,156,169.57,156,182.22V192h72Z" />
+          </svg>
+        </div>
+
+        <div
+          class="pointer-events-none absolute -right-6 top-[45%] z-30 grid size-14 place-items-center rounded-full bg-accent text-on-primary shadow-[var(--shadow-glow-accent)]"
+          data-hero-float>
+          <svg class="size-6.5" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M240,94a58,58,0,0,0-102.77-36.18L128,68.87l-9.23-11.05A58,58,0,0,0,16,94c0,53.43,53.53,99,107.54,136.46a8,8,0,0,0,8.92,0C186.47,193,240,147.43,240,94Zm-112,120C82.1,180.24,32,139.82,32,94a42,42,0,0,1,72-29.35l20.45,24.5a8,8,0,0,0,11.13,0L152,64.65A42,42,0,0,1,224,94C224,139.82,173.9,180.24,128,214Z" />
+          </svg>
+        </div>
+
+        <div
+          class="pointer-events-none absolute -bottom-7 left-[45%] z-30 grid size-16 place-items-center rounded-full border-[5px] border-white bg-tech text-on-primary shadow-glow-tech"
+          data-hero-float>
+          <svg class="size-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 6.5H19V15.5H5V6.5Z" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round" />
+            <path d="M3.5 18H20.5" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" />
+            <path d="M10 9.5L7.5 11.5L10 13.5M14 9.5L16.5 11.5L14 13.5" stroke="currentColor" stroke-width="2.1"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+
+        <svg class="pointer-events-none absolute -inset-x-14 -top-16 z-0 h-[620px] w-[calc(100%+7rem)] opacity-65"
+          viewBox="0 0 820 620" fill="none" aria-hidden="true">
+          <path class="roof-line" pathLength="1" d="M54 190H126V286L188 344" stroke="var(--color-tech-light)"
+            stroke-linecap="round" />
+          <path class="roof-line hero-delay-1" pathLength="1" d="M596 62V114H666L742 190V362"
+            stroke="var(--color-accent)" stroke-linecap="round" />
+          <path class="roof-line hero-delay-2" pathLength="1" d="M616 540H500L454 498H372"
+            stroke="var(--color-tech-light)" stroke-linecap="round" />
+          <path class="roof-line hero-delay-3" pathLength="1" d="M756 438V516H800" stroke="var(--color-tech-light)"
+            stroke-linecap="round" />
+          <circle class="hero-node" cx="54" cy="190" r="4" fill="var(--color-card)" stroke="var(--color-tech)"
+            stroke-width="2" />
+          <circle class="hero-node" cx="742" cy="190" r="4" fill="var(--color-card)" stroke="var(--color-accent)"
+            stroke-width="2" />
+          <circle class="hero-node" cx="800" cy="516" r="4" fill="var(--color-card)" stroke="var(--color-tech)"
+            stroke-width="2" />
+          <g fill="var(--color-card)" opacity=".92">
+            <circle cx="46" cy="376" r="2" />
+            <circle cx="62" cy="376" r="2" />
+            <circle cx="78" cy="376" r="2" />
+            <circle cx="94" cy="376" r="2" />
+            <circle cx="46" cy="394" r="2" />
+            <circle cx="62" cy="394" r="2" />
+            <circle cx="78" cy="394" r="2" />
+            <circle cx="94" cy="394" r="2" />
+            <circle cx="46" cy="412" r="2" />
+            <circle cx="62" cy="412" r="2" />
+            <circle cx="78" cy="412" r="2" />
+            <circle cx="94" cy="412" r="2" />
+            <circle cx="588" cy="120" r="2" />
+            <circle cx="606" cy="120" r="2" />
+            <circle cx="624" cy="120" r="2" />
+            <circle cx="642" cy="120" r="2" />
+            <circle cx="588" cy="138" r="2" />
+            <circle cx="606" cy="138" r="2" />
+            <circle cx="624" cy="138" r="2" />
+            <circle cx="642" cy="138" r="2" />
+          </g>
+        </svg>
+
+        <figure
+          class="hero-photo-frame relative z-10 ml-auto w-[90%] cursor-pointer rounded-[38px] border-[7px] border-card bg-card shadow-[var(--shadow-glow-photo)]">
+          <div class="aspect-[16/10] overflow-hidden rounded-[30px]">
+            <img class="h-full w-full object-cover transition-transform duration-500 ease-out hover:scale-105"
+              src="assets/DoanKhoaImage/hero-group.jpg"
+              alt="Sinh viên Đoàn khoa Hệ thống thông tin trong hoạt động tập thể" />
+          </div>
+        </figure>
+
+        <div class="absolute -bottom-[125px] -right-4 z-40 w-[270px]" data-hero-float>
+          <aside
+            class="glass-quote cursor-pointer rounded-card p-6 text-on-primary shadow-[var(--shadow-glass-card)] transition-transform duration-300 ease-out hover:scale-105">
+            <svg class="mb-3 size-7 opacity-90 text-white" viewBox="0 0 256 256" fill="currentColor">
+              <path
+                d="M116,116v64a16,16,0,0,1-16,16H44a16,16,0,0,1-16-16V128a80.09,80.09,0,0,1,80-80,8,8,0,0,1,0,16,64.07,64.07,0,0,0-64,64h56A16,16,0,0,1,116,116Zm112,0v64a16,16,0,0,1-16,16H156a16,16,0,0,1-16-16V128a80.09,80.09,0,0,1,80-80,8,8,0,0,1,0,16,64.07,64.07,0,0,0-64,64h56A16,16,0,0,1,228,116Z" />
+            </svg>
+            <p class="font-heading text-body-sm font-bold leading-7 text-white">
+              Đoàn Khoa...<br />
+              Học hết sức<br />
+              Chơi hết mình<br />
+              Đoàn Khoa là nhà!
+            </p>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden">
+      @for (stat of stats; track stat.caption) {
+      <article data-hero-stat [attr.data-tone]="stat.tone"
+        class="stat-card group relative min-h-[180px] overflow-hidden rounded-card p-4 xl:p-5">
+        <span class="stat-card-dot"></span>
+        <div class="stat-icon-box">
+          @if (stat.icon === 'calendar') {
+          <svg class="size-6" [class.text-tech]="stat.tone==='blue'" [class.text-accent]="stat.tone==='red'"
+            viewBox="0 0 24 24" fill="none">
+            <path
+              d="M7 3V6M17 3V6M5 9.5H19M7 5H17C18.1046 5 19 5.89543 19 7V18C19 19.1046 18.1046 20 17 20H7C5.89543 20 5 19.1046 5 18V7C5 5.89543 5.89543 5 7 5Z"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+          </svg>
+          } @else if (stat.icon === 'flag') {
+          <svg class="size-6" [class.text-tech]="stat.tone==='blue'" [class.text-accent]="stat.tone==='red'"
+            viewBox="0 0 24 24" fill="none">
+            <path d="M6 20V4M6 5H17L15 10L17 15H6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          } @else {
+          <svg class="size-6" [class.text-tech]="stat.tone==='blue'" [class.text-accent]="stat.tone==='red'"
+            viewBox="0 0 24 24" fill="none">
+            <path
+              d="M9 11A3 3 0 1 0 9 5A3 3 0 0 0 9 11ZM17 12A2.5 2.5 0 1 0 17 7A2.5 2.5 0 0 0 17 12ZM3.5 19C4.1 16.2 6.15 14.5 9 14.5C11.85 14.5 13.9 16.2 14.5 19M14.8 15.2C15.45 14.75 16.2 14.5 17 14.5C19.25 14.5 20.85 15.9 21.4 18.25"
+              stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+          </svg>
+          }
+        </div>
+        <h3 class="stat-value mt-4 text-[clamp(2.35rem,3vw,3.15rem)] font-black leading-none">
+          {{stat.value}}
+        </h3>
+        <div class="stat-rule mt-3"></div>
+        <h4 class="mt-3 font-heading text-body-sm font-bold leading-5 text-ink xl:text-body">
+          {{stat.caption}}
+        </h4>
+        <p class="mt-2 text-caption font-medium leading-5 text-ink-muted">
+          @switch (stat.value) {
+          @case ('120+') { Cán bộ Đoàn nhiệt huyết, luôn đồng hành cùng sinh viên.}
+          @case ('25+') { Chương trình và sự kiện được tổ chức mỗi năm.}
+          @case ('1000+') { Sinh viên kết nối, học tập và phát triển dưới mái nhà Hệ thống thông tin.}
+          @default { Hành trình xây dựng và phát triển từ năm 2010.}
+          }
+        </p>
+      </article>
+      }
+    </div>
+
+    <a href="#events"
+      class="hero-scroll-cue mx-auto mb-2 hidden shrink-0 items-center gap-2 self-center font-heading text-caption font-bold uppercase tracking-[0.12em] text-ink-muted transition hover:text-tech focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus sm:flex"
+      aria-hidden="true" tabindex="-1">
+      Khám phá thêm
+      <svg class="size-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 5V19M12 19L6 13M12 19L18 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </a>
+  </div>
+</section>

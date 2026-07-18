@@ -1,0 +1,277 @@
+/* Component-specific Styles for Hero Section */
+
+.glass-quote {
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.72), rgba(59, 130, 246, 0.55));
+  border: 1.5px solid rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* Background decorations */
+.hero-grid {
+  background-image:
+    linear-gradient(90deg, color-mix(in oklab, var(--color-tech) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(180deg, color-mix(in oklab, var(--color-tech) 5%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(120% 100% at 20% 0%, #000 45%, transparent 88%);
+  mask-image: radial-gradient(120% 100% at 20% 0%, #000 45%, transparent 88%);
+}
+
+.hero-blue-glow {
+  background:
+    radial-gradient(circle, color-mix(in oklab, var(--color-tech-light) 30%, transparent), transparent 66%);
+}
+
+.hero-red-glow {
+  background:
+    radial-gradient(circle, color-mix(in oklab, var(--color-accent) 30%, transparent), transparent 64%);
+}
+
+/* Underline squiggle beneath the highlighted headline */
+.hero-underline-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-underline {
+  position: absolute;
+  left: 2%;
+  right: 2%;
+  bottom: -0.32em;
+  height: 0.5em;
+  width: 96%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.hero-underline path {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0.55;
+  animation: draw-line 900ms 900ms cubic-bezier(0.65, 0, 0.15, 1) both;
+}
+
+/* ===== Statistic Card ===== */
+
+.stat-card{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  border:1px solid color-mix(in oklab,var(--stat-color) 18%,#fff);
+  background:#fff;
+  border-radius:24px;
+  box-shadow:0 10px 26px rgba(15,23,42,.08);
+  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+}
+
+.stat-card:hover{
+  transform:translateY(-5px);
+  border-color:color-mix(in oklab,var(--stat-color) 45%,#fff);
+  box-shadow:0 18px 36px color-mix(in oklab,var(--stat-color) 18%,transparent);
+}
+
+.stat-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:3px;
+  background:linear-gradient(90deg,var(--stat-color),color-mix(in oklab,var(--stat-color) 20%,#fff));
+}
+
+.stat-card::after{
+  content:"";
+  position:absolute;
+  right:-18%;
+  bottom:-20%;
+  width:76%;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:radial-gradient(circle,transparent 63%,color-mix(in oklab,var(--stat-color) 10%,transparent) 64%,color-mix(in oklab,var(--stat-color) 35%,transparent) 74%,transparent 75%);
+  pointer-events:none;
+}
+
+/* ===== Tone ===== */
+
+.stat-card[data-tone="blue"]{
+  --stat-color:#2563eb;
+  --stat-color-strong:#1d4ed8;
+}
+
+.stat-card[data-tone="red"]{
+  --stat-color:#ef4444;
+  --stat-color-strong:#dc2626;
+}
+
+/* ===== Icon ===== */
+
+.stat-icon-box{
+  width:46px;
+  height:46px;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  background:color-mix(in oklab,var(--stat-color) 8%,#fff);
+  box-shadow:0 8px 20px color-mix(in oklab,var(--stat-color) 12%,transparent);
+  transition:.35s;
+}
+
+.stat-card:hover .stat-icon-box{
+  transform:translateY(-3px) scale(1.06);
+}
+
+/* ===== Dot ===== */
+
+.stat-card-dot{
+  position:absolute;
+  top:18px;
+  right:18px;
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  background:var(--stat-color);
+  opacity:.25;
+}
+
+/* ===== Number ===== */
+
+.stat-value{
+  display:inline-block;
+  background:linear-gradient(180deg,var(--stat-color),var(--stat-color-strong));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  font-weight:900;
+  letter-spacing:0;
+  line-height:1;
+  transition:.35s;
+}
+
+.stat-card:hover .stat-value{
+  transform:scale(1.04);
+}
+
+/* ===== Line ===== */
+
+.stat-rule{
+  width:34px;
+  height:4px;
+  margin-top:10px;
+  border-radius:999px;
+  background:var(--stat-color);
+}
+
+/* Photo frame subtle tilt */
+.hero-photo-frame {
+  transform: rotate(0.6deg);
+  transition: transform 420ms cubic-bezier(0.65, 0, 0.15, 1);
+
+  &:hover {
+    transform: rotate(0deg) scale(1.015);
+  }
+}
+
+/* Scroll cue */
+.hero-scroll-cue {
+  animation: scroll-cue-bounce 2.2s ease-in-out infinite;
+}
+
+/* SVG Line Drawing animations */
+.roof-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw-line 1500ms cubic-bezier(0.7, 0, 0.2, 1) both;
+
+  &.hero-delay-1 {
+    animation-delay: 120ms;
+  }
+  &.hero-delay-2 {
+    animation-delay: 240ms;
+  }
+  &.hero-delay-3 {
+    animation-delay: 360ms;
+  }
+  &.hero-delay-4 {
+    animation-delay: 480ms;
+  }
+}
+
+.hero-node {
+  animation: node-pulse 2400ms ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes draw-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes node-pulse {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes scroll-cue-bounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+/* Subtle floating breathing animations for badges */
+@keyframes badge-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+[data-hero-float] {
+  animation: badge-float 4s ease-in-out infinite;
+
+  &:nth-child(2) {
+    animation-delay: 1s;
+  }
+  &:nth-child(3) {
+    animation-delay: 2s;
+  }
+}
+
+/* Respect reduced-motion preference across every hero animation */
+@media (prefers-reduced-motion: reduce) {
+  .roof-line,
+  .hero-node,
+  [data-hero-float],
+  .hero-underline path,
+  .hero-scroll-cue {
+    animation: none !important;
+  }
+
+  .roof-line {
+    stroke-dashoffset: 0;
+  }
+
+  .hero-underline path {
+    stroke-dashoffset: 0;
+    opacity: 0.55;
+  }
+}
