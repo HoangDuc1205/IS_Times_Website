@@ -11,31 +11,42 @@ Dự án sử dụng mô hình Git Workflow đơn giản và hiệu quả với 
 
 | Tên Nhánh | Người chịu trách nhiệm | Quyền hạn & Quy tắc |
 | :--- | :--- | :--- |
-| **`main`** | **Cả nhóm** | **Nhánh chính (Production):** Chứa code ổn định nhất. **CẤM** push trực tiếp lên `main`. Mọi thay đổi phải thông qua Pull Request (PR) và được review. |
-| **`HoangDuc`** | Hoàng Đức | Nhánh phát triển cá nhân của Hoàng Đức. |
+| **`main`** | **Cả nhóm** | **Nhánh chính (Production):** Chứa code ổn định nhất. **Chỉ Lead (Hoàng Đức) được quyền duyệt và merge code vào đây.** |
+| **`HoangDuc`** | **Hoàng Đức (Lead)** | Nhánh phát triển cá nhân của Hoàng Đức. |
 | **`HuynhBao`** | Huỳnh Bảo | Nhánh phát triển cá nhân của Huỳnh Bảo. |
 | **`DungMuoi`** | Dung Muối | Nhánh phát triển cá nhân của Dung Muối. |
 | **`PhuongAnh`** | Phương Anh | Nhánh phát triển cá nhân của Phương Anh. |
 
-> [!NOTE]
-> Khuyến khích các thành viên khi làm tính năng lớn hoặc sửa lỗi phức tạp nên tạo nhánh con từ nhánh cá nhân của mình (ví dụ: `HoangDuc/feature-login`, `HuynhBao/fix-footer`), sau đó merge vào nhánh cá nhân trước khi đưa lên `main`.
-
 ---
 
-## 2. QUY TRÌNH LÀM VIỆC TIÊU CHUẨN (DAILY WORKFLOW)
+## 2. QUY TRÌNH CỘNG TÁC CHUNG
 
-Quy trình phát triển code hàng ngày của một thành viên gồm 5 bước khép kín như sau:
+Để tránh xung đột code, quy trình phân vai được quy định như sau:
 
 ```mermaid
 graph TD
-    A[1. Pull code mới nhất từ main] --> B[2. Code tính năng trên nhánh cá nhân]
-    B --> C[3. Commit & Push lên nhánh cá nhân]
-    C --> D[4. Pull main về nhánh cá nhân để giải quyết conflict nếu có]
-    D --> E[5. Tạo Pull Request trên GitHub để Merge vào main]
+    subgraph Thành Viên
+        A[1. Pull main mới nhất] --> B[2. Code trên nhánh cá nhân]
+        B --> C[3. Commit & Push lên nhánh cá nhân]
+        C --> D[4. Pull main về nhánh cá nhân để giải quyết conflict]
+        D --> E[5. Tạo Pull Request PR gửi Lead]
+    end
+    subgraph Lead Hoàng Đức
+        E --> F[6. Review Code của thành viên]
+        F --> G[7. Nhấn MERGE PR vào main trên GitHub]
+        G --> H[8. Thông báo cả nhóm pull main mới nhất]
+    end
 ```
 
-### Bước 1: Cập nhật code mới nhất từ `main` đầu ngày làm việc
-Trước khi bắt đầu code bất cứ thứ gì, bạn cần cập nhật các thay đổi mới nhất mà người khác đã merge vào `main`.
+---
+
+## 3. HƯỚNG DẪN CHI TIẾT CHO THÀNH VIÊN (BẢO, DUNG, ANH)
+
+Các thành viên chỉ làm việc trên nhánh cá nhân của mình, giải quyết conflict cục bộ, đẩy lên GitHub và tạo Pull Request (PR). **Không tự ý merge PR vào `main`.**
+
+### Quy trình làm việc hàng ngày của thành viên:
+
+#### Bước 1: Cập nhật code mới nhất từ `main` đầu ngày làm việc
 ```bash
 # Chuyển về nhánh main
 git checkout main
@@ -44,185 +55,111 @@ git checkout main
 git pull origin main
 ```
 
-### Bước 2: Chuyển sang nhánh cá nhân và merge code từ `main` vào
+#### Bước 2: Hợp nhất code mới nhất từ `main` vào nhánh cá nhân của mình
 ```bash
-# Chuyển về nhánh cá nhân của bạn (ví dụ: HoangDuc)
+# Chuyển về nhánh cá nhân của bạn
 git checkout <Ten_Nhanh_Cua_Ban>
 
-# Hợp nhất code mới nhất từ main vào nhánh cá nhân của bạn
+# Hợp nhất code
 git merge main
 ```
-*Lưu ý: Nếu có conflict (xung đột), hãy dùng VS Code để resolve (giải quyết) và commit.*
+*(Nếu có conflict, hãy mở VS Code để sửa lỗi, sau đó lưu và commit)*
 
-### Bước 3: Phát triển tính năng & Commit
-Làm việc trên các file code của bạn. Sau khi xong một tính năng nhỏ hoặc cuối buổi làm việc:
+#### Bước 3: Code tính năng & Commit
+Làm việc trên các file code của bạn. Sau khi hoàn thành một tính năng:
 ```bash
-# Kiểm tra các file đã thay đổi
 git status
-
-# Thêm tất cả các file thay đổi vào khu vực chuẩn bị commit
 git add .
-
-# Commit code kèm mô tả rõ ràng
-git commit -m "feat: thêm giao diện danh sách sự kiện"
+git commit -m "feat: [Tên của bạn] mô tả tính năng đã làm"
 ```
 
-### Bước 4: Push code lên nhánh cá nhân của bạn trên GitHub
+#### Bước 4: Đẩy code lên GitHub
 ```bash
 git push origin <Ten_Nhanh_Cua_Ban>
 ```
 
-### Bước 5: Tạo Pull Request (PR) để Merge vào `main`
-1. Truy cập vào kho chứa (Repository) trên GitHub.
-2. Bạn sẽ thấy một thông báo màu vàng có nút **"Compare & pull request"**. Nhấp vào đó.
-3. Chọn:
-   - **base**: `main` (Nhánh nhận code)
-   - **compare**: `<Ten_Nhanh_Cua_Ban>` (Nhánh của bạn)
-4. Viết mô tả ngắn gọn những gì bạn đã làm.
-5. Gửi Pull Request và nhờ ít nhất 1 thành viên khác kiểm tra (Review) trước khi nhấn **Merge**.
+#### Bước 5: Tạo Pull Request (PR) & Báo Lead
+1. Truy cập vào Repository trên GitHub.
+2. Nhấn nút **"Compare & pull request"** màu vàng xuất hiện trên giao diện.
+3. Chọn Base: `main` <- Compare: `<Ten_Nhanh_Cua_Ban>`.
+4. Viết mô tả ngắn và nhấn **Create pull request**.
+5. Nhắn tin cho **Hoàng Đức** để kiểm tra và duyệt merge.
 
 ---
 
-## 3. HƯỚNG DẪN CHI TIẾT CHO TỪNG THÀNH VIÊN
+## 4. HƯỚNG DẪN DÀNH RIÊNG CHO Lead (HOÀNG ĐỨC)
 
-Dưới đây là các câu lệnh chính xác cho từng bạn để copy-paste khi làm việc.
+Là Lead, Hoàng Đức chịu trách nhiệm **kiểm tra chất lượng** và **merge code** từ các nhánh của thành viên vào nhánh `main`.
 
-### 3.1. Dành cho Hoàng Đức (Nhánh: `HoangDuc`)
+### 4.1. Cách Merge code của thành viên trên GitHub (Khuyên Dùng)
+Khi có thành viên gửi Pull Request (PR):
+1. Truy cập tab **Pull Requests** trên GitHub.
+2. Click chọn PR cần kiểm tra.
+3. Vào tab **Files changed** để xem thành viên đó đã sửa đổi những gì.
+4. Nếu code ổn định và không bị conflict:
+   - Nhấn nút **Merge pull request** màu xanh lá.
+   - Nhấn tiếp **Confirm merge**.
+5. Nếu bị báo **"This branch has conflicts that must be resolved"**:
+   - Yêu cầu thành viên đó tự pull `main` về nhánh của họ dưới máy local, tự fix conflict rồi push lại lên GitHub (PR sẽ tự động cập nhật).
 
-* **Chuẩn bị đầu ngày (Lấy code mới nhất):**
-  ```bash
-  git checkout main
-  git pull origin main
-  git checkout HoangDuc
-  git merge main
-  ```
-* **Lưu và đẩy code lên trong ngày:**
-  ```bash
-  git add .
-  git commit -m "feat: [Đức] mô tả ngắn gọn tính năng làm"
-  git push origin HoangDuc
-  ```
-* **Khi muốn merge vào `main`:**
-  1. Đảm bảo đã push code mới nhất lên nhánh `HoangDuc`.
-  2. Pull code `main` về nhánh của mình trước để kiểm tra conflict:
-     ```bash
-     git checkout main
-     git pull origin main
-     git checkout HoangDuc
-     git merge main
-     ```
-     *(Nếu có conflict, sửa lỗi trên VS Code, lưu lại và commit/push lại)*
-  3. Lên GitHub, tạo PR từ `HoangDuc` -> `main`.
+### 4.2. Cách Merge code của thành viên bằng dòng lệnh (Nếu cần test trước dưới máy local)
+Nếu muốn test code của thành viên dưới máy của mình trước khi chính thức đưa lên `main`:
+```bash
+# 1. Chuyển về main và cập nhật mới nhất
+git checkout main
+git pull origin main
 
----
+# 2. Tải nhánh của thành viên về máy (ví dụ nhánh HuynhBao)
+git fetch origin HuynhBao
 
-### 3.2. Dành cho Huỳnh Bảo (Nhánh: `HuynhBao`)
+# 3. Merge nhánh của thành viên vào main cục bộ
+git merge origin/HuynhBao
 
-* **Chuẩn bị đầu ngày (Lấy code mới nhất):**
-  ```bash
-  git checkout main
-  git pull origin main
-  git checkout HuynhBao
-  git merge main
-  ```
-* **Lưu và đẩy code lên trong ngày:**
-  ```bash
-  git add .
-  git commit -m "feat: [Bảo] mô tả ngắn gọn tính năng làm"
-  git push origin HuynhBao
-  ```
-* **Khi muốn merge vào `main`:**
-  1. Đảm bảo đã push code mới nhất lên nhánh `HuynhBao`.
-  2. Pull code `main` về nhánh của mình trước để kiểm tra conflict:
-     ```bash
-     git checkout main
-     git pull origin main
-     git checkout HuynhBao
-     git merge main
-     ```
-     *(Nếu có conflict, sửa lỗi trên VS Code, lưu lại và commit/push lại)*
-  3. Lên GitHub, tạo PR từ `HuynhBao` -> `main`.
+# 4. Chạy thử dự án dưới local (ng serve) để kiểm tra xem có lỗi không.
+# 5. Nếu mọi thứ hoạt động tốt, push trực tiếp lên main trên GitHub:
+git push origin main
+```
+
+### 4.3. Quy trình tự Code & Merge của riêng Hoàng Đức (Nhánh `HoangDuc`)
+Vì Đức vừa là Lead vừa code nhánh `HoangDuc`, quy trình thực hiện như sau:
+1. Code trên nhánh `HoangDuc` như bình thường:
+   ```bash
+   git checkout HoangDuc
+   # Code...
+   git add .
+   git commit -m "feat: [Đức] làm giao diện..."
+   git push origin HoangDuc
+   ```
+2. Cập nhật `main` và kiểm tra conflict:
+   ```bash
+   git checkout main
+   git pull origin main
+   git checkout HoangDuc
+   git merge main  # Tự xử lý conflict nếu có trên VS Code
+   git push origin HoangDuc
+   ```
+3. Lên GitHub, tạo PR từ `HoangDuc` -> `main`. Đức có thể tự review và nhấn nút **Merge** của chính mình.
 
 ---
 
-### 3.3. Dành cho Dung Muối (Nhánh: `DungMuoi`)
+## 5. QUY TẮC COMMIT & GIẢI QUYẾT XUNG ĐỘT (RESOLVE CONFLICT)
 
-* **Chuẩn bị đầu ngày (Lấy code mới nhất):**
-  ```bash
-  git checkout main
-  git pull origin main
-  git checkout DungMuoi
-  git merge main
-  ```
-* **Lưu và đẩy code lên trong ngày:**
-  ```bash
-  git add .
-  git commit -m "feat: [Dung] mô tả ngắn gọn tính năng làm"
-  git push origin DungMuoi
-  ```
-* **Khi muốn merge vào `main`:**
-  1. Đảm bảo đã push code mới nhất lên nhánh `DungMuoi`.
-  2. Pull code `main` về nhánh của mình trước để kiểm tra conflict:
-     ```bash
-     git checkout main
-     git pull origin main
-     git checkout DungMuoi
-     git merge main
-     ```
-     *(Nếu có conflict, sửa lỗi trên VS Code, lưu lại và commit/push lại)*
-  3. Lên GitHub, tạo PR từ `DungMuoi` -> `main`.
-
----
-
-### 3.4. Dành cho Phương Anh (Nhánh: `PhuongAnh`)
-
-* **Chuẩn bị đầu ngày (Lấy code mới nhất):**
-  ```bash
-  git checkout main
-  git pull origin main
-  git checkout PhuongAnh
-  git merge main
-  ```
-* **Lưu và đẩy code lên trong ngày:**
-  ```bash
-  git add .
-  git commit -m "feat: [Anh] mô tả ngắn gọn tính năng làm"
-  git push origin PhuongAnh
-  ```
-* **Khi muốn merge vào `main`:**
-  1. Đảm bảo đã push code mới nhất lên nhánh `PhuongAnh`.
-  2. Pull code `main` về nhánh của mình trước để kiểm tra conflict:
-     ```bash
-     git checkout main
-     git pull origin main
-     git checkout PhuongAnh
-     git merge main
-     ```
-     *(Nếu có conflict, sửa lỗi trên VS Code, lưu lại và commit/push lại)*
-  3. Lên GitHub, tạo PR từ `PhuongAnh` -> `main`.
-
----
-
-## 4. QUY TẮC COMMIT & GIẢI QUYẾT XUNG ĐỘT (RESOLVE CONFLICT)
-
-### 4.1. Quy tắc viết commit message (Commit Convention)
+### 5.1. Quy tắc viết commit message (Commit Convention)
 Hãy viết commit message có cấu trúc để cả nhóm dễ theo dõi lịch sử dự án:
 *   `feat: ...` -> Khi thêm tính năng mới (Ví dụ: `feat: thêm component đăng ký`)
 *   `fix: ...` -> Khi sửa lỗi (Ví dụ: `fix: sửa lỗi hiển thị nút bấm trên mobile`)
 *   `style: ...` -> Khi chỉnh sửa giao diện/CSS mà không đổi logic (Ví dụ: `style: chỉnh màu nền header`)
 *   `docs: ...` -> Khi viết/sửa tài liệu hướng dẫn (Ví dụ: `docs: cập nhật hướng dẫn cài đặt`)
 
-### 4.2. Cách giải quyết xung đột (Conflict) khi Merge
-Xung đột xảy ra khi hai người cùng sửa một dòng code ở một file và hệ thống không tự biết chọn bản nào.
-Khi bạn thực hiện `git merge main` hoặc `git pull` và gặp thông báo xung đột:
+### 5.2. Cách giải quyết xung đột (Conflict) khi Merge
+Xung đột xảy ra khi hai người cùng sửa một dòng code ở một file. Khi bạn thực hiện `git merge` hoặc `git pull` và gặp xung đột:
 
 1. **Mở VS Code**: Các file bị xung đột sẽ hiển thị màu đỏ với chữ **C** (Conflict).
 2. **Xem nội dung file**: VS Code sẽ hiển thị các phần code khác biệt kèm 4 lựa chọn:
    *   *Accept Current Change*: Giữ lại code của bạn.
    *   *Accept Incoming Change*: Lấy code từ nhánh khác (ví dụ từ `main`).
    *   *Accept Both Changes*: Lấy cả hai phiên bản code.
-   *   *Compare Changes*: Xem so sánh trực quan.
-3. **Thảo luận**: Nếu không chắc chắn code của ai đúng, hãy gọi điện hoặc nhắn tin trực tiếp cho người viết phần code đó để thảo luận nên giữ lại cái nào.
+3. **Thảo luận**: Nhắn tin trực tiếp cho người viết phần code đó để thảo luận nên giữ lại cái nào.
 4. **Lưu và Commit lại**: Sau khi chọn xong, lưu file đó lại. Chạy lệnh:
    ```bash
    git add .
@@ -230,4 +167,4 @@ Khi bạn thực hiện `git merge main` hoặc `git pull` và gặp thông báo
    ```
 
 > [!WARNING]
-> **TUYỆT ĐỐI KHÔNG** dùng cờ `--force` (`-f`) khi push code trừ khi bạn hiểu cực kỳ rõ mình đang làm gì. Sử dụng `--force` có thể đè và xóa mất toàn bộ code của các thành viên khác trên GitHub.
+> **TUYỆT ĐỐI KHÔNG** dùng cờ `--force` (`-f`) khi push code trừ khi hiểu cực kỳ rõ mình đang làm gì. Sử dụng `--force` có thể đè và xóa mất toàn bộ code của các thành viên khác trên GitHub.
