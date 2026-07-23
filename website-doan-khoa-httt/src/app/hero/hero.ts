@@ -6,7 +6,10 @@ import {
   OnDestroy,
   PLATFORM_ID,
   inject,
+  signal,
 } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 type GsapContext = {
   revert: () => void;
@@ -22,13 +25,20 @@ type StatCard = {
 @Component({
   selector: 'app-hero',
   standalone: true,
+  imports: [RouterLink],
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
 })
 export class HeroComponent implements AfterViewInit, OnDestroy {
   private readonly host = inject(ElementRef<HTMLElement>);
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly router = inject(Router);
   private gsapContext?: GsapContext;
+
+  // Auth & Mobile Menu state
+  protected readonly authService = inject(AuthService);
+  protected readonly showUserMenu = signal(false);
+  protected readonly showMobileMenu = signal(false);
 
   protected readonly navItems = ['Sự kiện', 'Tin tức', 'Ban Chấp hành', 'Chưa nghĩ ra', 'Liên hệ'];
 
@@ -38,6 +48,25 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
     { value: '1000+', caption: 'Sinh viên đồng hành', tone: 'blue', icon: 'people' },
     { value: '2010', caption: 'Năm thành lập', tone: 'red', icon: 'flag' },
   ];
+
+  protected toggleUserMenu(): void {
+    this.showUserMenu.update(v => !v);
+  }
+
+  protected toggleMobileMenu(): void {
+    this.showMobileMenu.update(v => !v);
+  }
+
+  protected closeMobileMenu(): void {
+    this.showMobileMenu.set(false);
+  }
+
+  protected async logout(): Promise<void> {
+    this.showUserMenu.set(false);
+    this.showMobileMenu.set(false);
+    await this.authService.signOut();
+    this.router.navigate(['/']);
+  }
 
   async ngAfterViewInit(): Promise<void> {
     if (!isPlatformBrowser(this.platformId)) {

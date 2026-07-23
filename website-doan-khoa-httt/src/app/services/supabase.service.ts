@@ -59,4 +59,23 @@ export class SupabaseService {
       
     return { data, error };
   }
+
+  /**
+   * Đăng ký tài khoản mới bằng Email & Mật khẩu
+   */
+  async signUp(email: string, password: string, fullName: string, studentId: string) {
+    const { data, error } = await this.supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          full_name: fullName,
+          student_id: studentId,
+          role: 'member'
+        }
+      }
+    });
+    
+    return { data, error };
+  }
 }
