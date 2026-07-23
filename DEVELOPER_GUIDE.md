@@ -16,7 +16,7 @@
 
 ## 1. TRIẾT LÝ THIẾT KẾ & ĐỊNH VỊ THƯƠNG HIỆU
 
-Dự án **IS Times** không phải là một landing page công nghệ chung chung, một trang web khởi nghiệp (SaaS), hay trang quản trị khô khan. Đây là **"Mái Nhà Xanh"** - trang thông tin và kết nối chính thức của Liên chi Hội khoa Hệ thống Thông tin.
+Dự án **IS Times** không phải là một landing page công nghệ chung chung, một trang web khởi nghiệp (SaaS), hay trang quản trị khô khan. Đây là **"Mái Nhà Xanh"** - trang thông tin và kết nối chính thức của Đoàn khoa Hệ thống thông tin.
 
 Thiết kế luôn phải cân bằng giữa hai trục giá trị chính:
 *   **Ấm áp (Warm Family):** Thân thiện, gắn kết, thuộc về, đậm chất sinh viên Việt Nam.
