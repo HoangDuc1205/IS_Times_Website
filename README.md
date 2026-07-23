@@ -25,12 +25,12 @@ Quy trình phân chia công việc cực kỳ đơn giản như sau:
 
 ```mermaid
 graph TD
-    subgraph 1. Thành Viên (Bảo, Dung, Anh)
+    subgraph Member ["1. Thành Viên (Bảo, Dung, Anh)"]
         A[Cập nhật code từ main] --> B[Code tính năng trên nhánh của mình]
         B --> C[Commit & Push lên nhánh cá nhân]
         C --> D[Báo cho Lead Hoàng Đức]
     end
-    subgraph 2. Lead (Hoàng Đức)
+    subgraph TeamLead ["2. Lead (Hoàng Đức)"]
         D --> E[Kiểm tra code & xử lý conflict nếu có]
         E --> F[Merge code của thành viên vào main]
     end
