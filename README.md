@@ -70,7 +70,7 @@ git push origin <Ten_Nhanh_Cua_Ban>
 
 ### Bước 4: Nhắn tin báo cho Lead
 Sau khi đã push xong, bạn chỉ cần nhắn tin cho **Lead (Hoàng Đức)**:
-> *"Đức ơi, tui đã push xong tính năng [tên tính năng] lên nhánh của tui rồi nha, merge giúp tui với!"*
+> *"Anh Đức ơi, em đã push xong tính năng [tên tính năng] lên nhánh của em rồi nha, merge giúp em với"*
 
 **Xong! Thành viên không cần làm gì thêm, không cần tạo PR phức tạp.**
 
