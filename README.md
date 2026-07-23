@@ -40,7 +40,7 @@ graph TD
 
 ---
 
-## 3. HƯỚNG DẪN CHI TIẾT CHO THÀNH VIÊN (BẢO, DUNG, ANH)
+## 3. HƯỚNG DẪN CHI TIẾT CHO THÀNH VIÊN (HUỲNH BẢO, DUNG MÚI, PHƯƠNG ANH)
 
 Các thành viên chỉ làm việc trên nhánh cá nhân của mình, giải quyết conflict cục bộ, đẩy lên GitHub và tạo Pull Request (PR). **Không tự ý merge PR vào `main`.**
 
