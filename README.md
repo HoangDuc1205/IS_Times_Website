@@ -40,7 +40,7 @@ graph TD
 
 ---
 
-## 3. HƯỚNG DẪN CHI TIẾT CHO THÀNH VIÊN (BẢO, DUNG, ANH)
+## 3. HƯỚNG DẪN CHI TIẾT CHO THÀNH VIÊN (HUỲNH BẢO, DUNG MÚI, PHƯƠNG ANH)
 
 Dưới đây là các lệnh Git chính xác tương ứng với 5 bước trên. Bạn chỉ cần làm theo thứ tự này:
 
